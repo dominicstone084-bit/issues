@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Software Issues | Masomo ya ICT</title>
+<style>
+:root{--ink:#172033;--muted:#65718a;--blue:#2457c5;--pale:#eef3ff;--line:#dce3ef;--good:#147a48;--bad:#b33a3a}
+*{box-sizing:border-box}body{margin:0;background:#f4f6fb;color:var(--ink);font:16px/1.6 Arial,sans-serif}
+main{max-width:850px;margin:auto;padding:22px 16px 50px}
+header{background:linear-gradient(135deg,#173b85,#3978d8);color:white;padding:28px 24px;border-radius:18px;margin-bottom:18px}
+header h1{margin:0 0 8px;font-size:28px}header p{margin:4px 0;color:#e8efff}
+.pill{display:inline-block;background:#e8efff;color:#214da5;border-radius:20px;padding:4px 11px;font-size:13px;font-weight:bold}
+.card{background:white;border:1px solid var(--line);border-radius:15px;padding:20px;margin:14px 0;box-shadow:0 4px 15px #1720330a}
+h2{font-size:21px;margin:0 0 10px}h3{font-size:17px;margin:14px 0 5px}
+.lang{color:var(--blue);font-weight:bold;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+p{margin:6px 0 12px}.sw{color:#36445e}.en{color:#172033}
+button{border:0;border-radius:10px;padding:11px 16px;font-weight:bold;cursor:pointer;background:var(--blue);color:white;font-size:15px}
+button.secondary{background:#e9eef8;color:#233657}button:disabled{opacity:.45;cursor:not-allowed}
+.options{display:grid;gap:9px;margin:14px 0}.option{background:white;color:var(--ink);border:1px solid var(--line);text-align:left}
+.option.selected{border:2px solid var(--blue);background:var(--pale)}
+.feedback{padding:13px;border-radius:10px;margin:12px 0;display:none}
+.feedback.good{display:block;background:#eaf7ef;color:#145b38}.feedback.bad{display:block;background:#fff0f0;color:#8d2929}
+.progress{height:8px;background:#e4e9f2;border-radius:9px;overflow:hidden;margin:10px 0 18px}.bar{height:100%;background:#3978d8;width:0}
+.small{font-size:14px;color:var(--muted)}.hidden{display:none}.score{font-size:22px;font-weight:bold}
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:24px}
+</style>
+</head>
+<body>
+<main>
+<header>
+<span class="pill">ICT • QUESTION 2</span>
+<h1>Software Issues</h1>
+<p>Matatizo ya Programu za Kompyuta</p>
+<p>Jifunze kwa Kiingereza na Kiswahili, kisha jibu maswali na upate maelezo ya majibu.</p>
+</header>
+
+<section class="card">
+<h2>How to use this lesson / Jinsi ya kutumia somo</h2>
+<p class="en"><b>English:</b> Read the explanation in both languages. Then answer the question. The page will tell you whether your answer is correct and explain why before you move to the next question.</p>
+<p class="sw"><b>Kiswahili:</b> Soma maelezo kwa lugha zote mbili. Kisha jibu swali. Ukijibu, ukurasa utakuonyesha kama jibu ni sahihi na kukueleza sababu kabla ya kuendelea na swali linalofuata.</p>
+</section>
+
+<section class="card">
+<h2>Listen to the lesson / Sikiliza somo</h2>
+<p class="en">Press play to hear the lesson read aloud in English and Kiswahili. The voice depends on the voices available on your phone or browser.</p>
+<p class="sw">Bonyeza sikiliza ili usikie somo likisomwa kwa Kiingereza na Kiswahili. Sauti itategemea lugha na sauti zilizopo kwenye simu au browser yako.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button type="button" id="listenBtn">▶ Sikiliza somo / Play lesson</button>
+<button type="button" class="secondary" id="stopBtn">■ Simamisha / Stop</button>
+</div>
+<p class="small" id="voiceStatus" aria-live="polite">Tumia kitufe cha Sikiliza kuanza. / Press Play to begin.</p>
+</section>
+
+<section class="card">
+<h2>1. Meaning of Software Issues / Maana ya matatizo ya software</h2>
+<p class="en"><b>English:</b> Software issues are problems in computer programs or the operating system that prevent a computer from working properly. They may make the computer slow, cause errors, or stop programs from opening.</p>
+<p class="sw"><b>Kiswahili:</b> Software issues ni matatizo yanayotokea kwenye programu za kompyuta au mfumo endeshi (operating system), na kusababisha kompyuta kutofanya kazi vizuri. Yanaweza kufanya kompyuta iwe nzito, kutoa hitilafu au programu kushindwa kufunguka.</p>
+<p><b>Example / Mfano:</b> Windows failing to start / Windows kushindwa kuwaka vizuri.</p>
+</section>
+
+<section class="card">
+<h2>2. Types of Software Problems / Aina za matatizo ya software</h2>
+<h3>Operating system errors / Hitilafu za mfumo endeshi</h3>
+<p class="en">These are errors in software such as Windows. They can make the computer freeze, restart unexpectedly, or fail to start.</p>
+<p class="sw">Hizi ni hitilafu kwenye mfumo endeshi kama Windows. Zinaweza kufanya kompyuta igande, ijizime au ijirestart yenyewe, au ishindwe kuwaka.</p>
+<h3>Application software crashes / Programu kufunga ghafla</h3>
+<p class="en">An application suddenly stops working while a person is using it. For example, Microsoft Word closes before the user saves their work.</p>
+<p class="sw">Programu inapoacha kufanya kazi ghafla wakati mtu anaitumia. Mfano, Microsoft Word inajifunga kabla hujahifadhi kazi yako.</p>
+<h3>Virus and malware infections / Maambukizi ya virusi na malware</h3>
+<p class="en">Viruses and other malware are harmful software. They can damage files, steal information, or slow down a computer.</p>
+<p class="sw">Virusi na malware ni programu hatari. Zinaweza kuharibu mafaili, kuiba taarifa au kupunguza kasi ya kompyuta.</p>
+</section>
+
+<section class="card">
+<h2>3. Causes and effects / Sababu na madhara</h2>
+<p class="en"><b>Causes:</b> installing faulty software, malware infections, outdated programs, software bugs, and insufficient memory.</p>
+<p class="sw"><b>Sababu:</b> kusakinisha programu yenye hitilafu, maambukizi ya malware, kutumia programu za zamani, makosa ya programu (bugs), na RAM kutokuwa ya kutosha.</p>
+<p class="en"><b>Effects:</b> slow performance, programs not responding, loss of files, unexpected restarts, and applications failing to open.</p>
+<p class="sw"><b>Madhara:</b> kompyuta kuwa nzito, programu kutokujibu, kupotea kwa mafaili, kompyuta kujirestart bila kutarajia, na programu kushindwa kufunguka.</p>
+</section>
+
+<section class="card">
+<h2>4. Software troubleshooting / Hatua za kutatua matatizo</h2>
+<ol>
+<li><b>Restart the computer</b> — Washa upya kompyuta.</li>
+<li><b>Check error messages</b> — Angalia ujumbe wa hitilafu.</li>
+<li><b>Update the system and apps</b> — Sasisha mfumo na programu.</li>
+<li><b>Scan for malware</b> — Chunguza kompyuta kutafuta malware.</li>
+<li><b>Remove the faulty app</b> — Ondoa programu inayosababisha tatizo.</li>
+<li><b>Reinstall the app if needed</b> — Sakinisha upya programu ikihitajika.</li>
+</ol>
+<p class="sw">Troubleshooting ni mchakato wa kutafuta chanzo cha tatizo na kuchukua hatua za kulitatua.</p>
+</section>
+
+<section class="card">
+<h2>5. Antivirus and system utilities / Antivirus na zana za mfumo</h2>
+<h3>Antivirus software / Programu ya kuzuia virusi</h3>
+<p class="en">It detects, blocks, and removes viruses and other malware. Examples include Microsoft Defender, Avast, and Kaspersky.</p>
+<p class="sw">Hutambua, huzuia na kuondoa virusi pamoja na malware nyingine. Mifano ni Microsoft Defender, Avast na Kaspersky.</p>
+<h3>System utilities / Zana za matengenezo ya mfumo</h3>
+<p class="en">These are tools that help maintain a computer. Disk Cleanup removes unnecessary files; Task Manager shows running apps and their resource use; Disk Management helps manage storage drives.</p>
+<p class="sw">Hizi ni zana zinazosaidia kutunza kompyuta. Disk Cleanup huondoa mafaili yasiyo ya lazima; Task Manager huonyesha programu zinazoendeshwa na matumizi ya rasilimali; Disk Management husaidia kusimamia diski.</p>
+</section>
+
+<section class="card">
+<h2>6. Practical examples / Mifano ya vitendo</h2>
+<ul>
+<li><b>Computer is slow / Kompyuta ni nzito:</b> remove unnecessary files and check running apps / ondoa mafaili yasiyo ya lazima na kagua programu zinazoendeshwa.</li>
+<li><b>Virus detected / Virusi vimegundulika:</b> run a trusted antivirus scan / fanya uchunguzi kwa antivirus inayoaminika.</li>
+<li><b>Word keeps closing / Word inajifunga:</b> update or repair the application / sasisha au rekebisha programu.</li>
+<li><b>Windows fails to start / Windows inashindwa kuwaka:</b> use Startup Repair or seek technical help / tumia Startup Repair au tafuta msaada wa fundi.</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>7. Current software security challenges / Changamoto za sasa za usalama wa software</h2>
+<h3>Ransomware</h3><p class="en">Malware that locks or encrypts files and demands money to restore access.</p><p class="sw">Malware inayofunga au kusimba mafaili na kudai malipo ili mtumiaji apate tena uwezo wa kuyafungua.</p>
+<h3>Phishing</h3><p class="en">Fake emails, messages, or websites designed to trick people into sharing passwords or private information.</p><p class="sw">Barua pepe, ujumbe au tovuti bandia zinazomdanganya mtu atoe nenosiri au taarifa zake binafsi.</p>
+<h3>Data theft and spyware / Wizi wa taarifa na spyware</h3><p class="en">Attackers may access private data without permission. Spyware secretly collects information about a user.</p><p class="sw">Wavamizi wanaweza kupata taarifa binafsi bila ruhusa. Spyware hukusanya taarifa za mtumiaji kwa siri.</p>
+<h3>Outdated software / Software isiyosasishwa</h3><p class="en">Old software may contain security weaknesses that attackers can exploit.</p><p class="sw">Software ya zamani inaweza kuwa na mianya ya usalama ambayo wahalifu wa mtandaoni wanaweza kuitumia.</p>
+</section>
+
+<section class="card" id="quiz">
+<h2>Test your understanding / Pima uelewa wako</h2>
+<p class="small">Choose one answer for each question. / Chagua jibu moja kwa kila swali.</p>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="small" id="counter">Question 1 of 8</div>
+<h3 id="question"></h3>
+<p class="sw" id="translation"></p>
+<div class="options" id="options"></div>
+<div class="feedback" id="feedback" aria-live="polite"></div>
+<button id="next" disabled>Next question / Swali linalofuata</button>
+<div id="result" class="hidden">
+<p class="score" id="score"></p>
+<p id="resultText"></p>
+<button onclick="restart()">Try again / Jaribu tena</button>
+</div>
+</section>
+<footer>ICT Learning • Software Issues • English + Kiswahili</footer>
+</main>
+<script>
+(function(){
+ const play=document.getElementById("listenBtn"), stop=document.getElementById("stopBtn"), status=document.getElementById("voiceStatus");
+ if(!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)){
+   status.textContent="Sauti haisapotiwi na browser hii. / Audio reading is not supported by this browser.";
+   play.disabled=true; stop.disabled=true; return;
+ }
+ let items=[], index=0;
+ function collect(){
+   items=[];
+   document.querySelectorAll("main > section.card").forEach((section, si)=>{
+     if(section.id==="quiz" || section.querySelector("#listenBtn")) return;
+     section.querySelectorAll("h2,h3,p,li").forEach(el=>{
+       const t=(el.innerText||"").trim();
+       if(!t) return;
+       let lang="en";
+       if(el.classList.contains("sw")) lang="sw-TZ";
+       else if(el.classList.contains("en")) lang="en-US";
+       items.push({text:t,lang});
+     });
+   });
+ }
+ function speakNext(){
+   if(index>=items.length){status.textContent="Somo limeisha. / Lesson finished.";play.disabled=false;return;}
+   const item=items[index++];
+   const u=new SpeechSynthesisUtterance(item.text);
+   u.lang=item.lang;
+   u.rate=0.88;
+   u.onend=speakNext;
+   u.onerror=()=>{status.textContent="Sauti imesimama. Jaribu tena. / Audio stopped. Try again.";play.disabled=false;};
+   window.speechSynthesis.speak(u);
+ }
+ play.addEventListener("click",()=>{
+   window.speechSynthesis.cancel();collect();index=0;play.disabled=true;
+   status.textContent="Inasoma somo... / Reading the lesson...";
+   speakNext();
+ });
+ stop.addEventListener("click",()=>{
+   window.speechSynthesis.cancel();index=items.length;play.disabled=false;
+   status.textContent="Sauti imesimamishwa. / Audio stopped.";
+ });
+})();
+</script>
+<script>
+const qs=[
+{q:"What are software issues?",sw:"Software issues ni nini?",o:["Problems in computer programs or the operating system","Problems with the computer desk","Problems with the room temperature"],a:0,e:"Correct. Software issues are faults in programs or the operating system. / Sahihi. Ni hitilafu kwenye programu au mfumo endeshi."},
+{q:"Which is an example of an operating system error?",sw:"Kipi ni mfano wa hitilafu ya operating system?",o:["The keyboard is dirty","Windows fails to start properly","The monitor is dusty"],a:1,e:"Correct. Windows is an operating system, so a failure to start can be an operating system error. / Sahihi. Windows ni mfumo endeshi, hivyo kushindwa kuwaka ni hitilafu yake."},
+{q:"What does an application crash mean?",sw:"Application crash ina maana gani?",o:["The app suddenly stops working","The computer gets a new screen","The user changes the wallpaper"],a:0,e:"Correct. A crash happens when an application suddenly stops working. / Sahihi. Programu inapoacha kufanya kazi ghafla tunaita crash."},
+{q:"Which one is malware?",sw:"Kipi kati ya hivi ni malware?",o:["A computer mouse","A harmful computer program","A printer cable"],a:1,e:"Correct. Malware is harmful software that may damage files or steal information. / Sahihi. Malware ni programu hatari inayoweza kuharibu mafaili au kuiba taarifa."},
+{q:"Which action is a useful first troubleshooting step?",sw:"Hatua ipi inaweza kusaidia kuanza kutatua tatizo?",o:["Hit the computer","Restart the computer","Delete every file"],a:1,e:"Correct. Restarting can clear some temporary problems. It does not solve every issue, but it is a useful first step. / Sahihi. Kuwasha upya kunaweza kuondoa baadhi ya matatizo ya muda."},
+{q:"What is the main job of antivirus software?",sw:"Kazi kuu ya antivirus ni ipi?",o:["Create documents","Detect and remove malware","Increase screen size"],a:1,e:"Correct. Antivirus helps detect, block, and remove harmful software. / Sahihi. Antivirus husaidia kutambua, kuzuia na kuondoa programu hatari."},
+{q:"What does Task Manager help a user do?",sw:"Task Manager humsaidia mtumiaji kufanya nini?",o:["See running apps and resource use","Wash clothes","Print money"],a:0,e:"Correct. Task Manager shows running processes and how they use computer resources. / Sahihi. Task Manager huonyesha programu zinazoendeshwa na matumizi ya rasilimali."},
+{q:"What is phishing?",sw:"Phishing ni nini?",o:["A way to clean a screen","A fake message or website used to trick people into sharing information","A type of computer memory"],a:1,e:"Correct. Phishing tricks people into giving away passwords or private information. / Sahihi. Phishing humdanganya mtu atoe nenosiri au taarifa binafsi."}
+];
+let i=0,score=0,answered=false;
+const $=id=>document.getElementById(id);
+function render(){
+ answered=false;$("counter").textContent=`Question ${i+1} of ${qs.length} / Swali ${i+1} kati ya ${qs.length}`;
+ $("bar").style.width=(i/qs.length*100)+"%";$("question").textContent=qs[i].q;$("translation").textContent=qs[i].sw;
+ $("options").innerHTML="";qs[i].o.forEach((v,n)=>{let b=document.createElement("button");b.className="option";b.textContent=String.fromCharCode(65+n)+". "+v;b.onclick=()=>choose(n,b);$("options").appendChild(b)});
+ $("feedback").className="feedback";$("feedback").textContent="";$("next").disabled=true;$("next").textContent=i===qs.length-1?"See result / Angalia matokeo":"Next question / Swali linalofuata";
+}
+function choose(n,b){
+ if(answered)return;answered=true;const q=qs[i];document.querySelectorAll(".option").forEach(x=>x.disabled=true);
+ if(n===q.a){score++;$("feedback").className="feedback good";$("feedback").textContent="✓ Correct! / Sahihi! "+q.e}
+ else{$("feedback").className="feedback bad";$("feedback").textContent="Not quite. / Si sahihi. Correct answer: "+q.o[q.a]+". "+q.e}
+ b.classList.add("selected");$("next").disabled=false;
+}
+$("next").onclick=()=>{if(!answered)return;i++;if(i<qs.length)render();else{$("bar").style.width="100%";$("question").classList.add("hidden");$("translation").classList.add("hidden");$("options").classList.add("hidden");$("feedback").classList.add("hidden");$("next").classList.add("hidden");$("counter").classList.add("hidden");$("result").classList.remove("hidden");$("score").textContent=`Your score: ${score}/${qs.length}`;$("resultText").textContent=score>=6?"Great work! Review any explanations you missed. / Hongera! Pitia tena maelezo ya maswali uliyokosea.":"Good effort. Read the lesson again and try once more. / Umejitahidi. Soma somo tena kisha jaribu tena."}};
+function restart(){i=0;score=0;["question","translation","options","next","counter"].forEach(x=>$(x).classList.remove("hidden"));$("result").classList.add("hidden");render()}
+render();
+</script>
+</body>
+</html>
